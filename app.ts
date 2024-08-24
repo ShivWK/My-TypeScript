@@ -1,39 +1,45 @@
 export {};
 
-// console.log("hello shivendra");
+// function sum(num1 : number, num2 : number) {
+//     return num1 + num2;
+// }
 
-let gggName = "shivendra";
+// console.log(sum(12, 13));
 
-// console.log(gggName);
+// function sum1(num1, num2) {
+//     return num1 + num2;
+// }
 
-const Id = 89;
+// console.log(sum1('12', 13));
 
-// console.log(Id);
+// let person : {name : string; age : number;} = {
+//     name : 'shivD',
+//     age : 25
+// }
 
-let mine : string = "new one";
+// console.log(person['name'])
 
-let name = "JDJD"
+// let user = {
+//     name : 'shiv',
+//     age : 25,
+//     obj : {
+//         name1 : "shiva",
+//         age : 24
+//     }
+// }
 
-let see : string = "sss&";
-// console.log(see);
-// console.log(name);
+// console.log(user);
 
-let num1 = 45;
-let num2 : number = 56;
+let personArray : (number | string | boolean)[] = ["str", 45, true];
+// console.log(personArray);
 
-let bool1 = true;
-let bool2 : boolean = false;
+// personArray.push(false);
+// personArray.push('shiv');
+// personArray.push(50);
+// personArray[3] = 'shivendra';
+// console.log(personArray);
 
-console.log(Boolean(100));
-console.log(Boolean(0));
-console.log(Boolean(''));
-console.log(Boolean(' '));
-console.log(Boolean(null));
-console.log(Boolean(undefined));
-console.log(Boolean(false));
-console.log(Boolean("false"));
-console.log(Boolean('0'));
-console.log(Boolean('null'));
-console.log(Boolean('undefined'));
+// console.log(personArray[3]);
 
-//}) ()
+let tupleArray : [number, string, number, boolean] = [1, 'shivendra', 22, true] 
+console.log(tupleArray);
