@@ -1,4 +1,4 @@
-export {};
+
 
 // function sum(num1 : number, num2 : number) {
 //     return num1 + num2;
@@ -42,4 +42,8 @@ let personArray : (number | string | boolean)[] = ["str", 45, true];
 // console.log(personArray[3]);
 
 let tupleArray : [number, string, number, boolean] = [1, 'shivendra', 22, true] 
+console.log(tupleArray.pop());
+tupleArray.push("shivendra");
+console.log(tupleArray.shift())
+tupleArray.unshift("naHi pata ji");
 console.log(tupleArray);
