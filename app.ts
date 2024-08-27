@@ -100,3 +100,36 @@
     // console.log(newVar);
     // console.log( typeof newVar);
 
+//Union type in TS
+
+let user : {name : string; age : number} | null = null;
+
+function getUser() {
+    const uName = "shivendra";
+    const uAge = 25;
+
+    user = {name : uName, age : uAge};
+
+    return user;
+}
+
+// console.log(getUser());
+
+function printState(message : string , code : string | number) {
+    console.log(message + " " + "Status code "+code);
+}
+
+printState("Request found", 200);
+printState("Request was not found", ' 404')
+
+function printState1(message : string , code : string | number) {
+    if (typeof code === 'string') {
+        console.log(message + " " + "Status code "+code.trim());
+    } else {
+        console.log(message + " " + "Status code "+code);
+    }
+    
+}
+
+printState1("Request found", 200);
+printState1("Request was not found", ' 404')

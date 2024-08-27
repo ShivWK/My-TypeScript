@@ -55,24 +55,48 @@
 // }
 // console.log(Direction.Right +" "+ Direction.Up);
 //'any' type in TS
-let mine;
-mine = "shivendra";
-mine = 25;
-mine = true;
-let arr;
-arr = ['shivendra', 25, false, null, undefined];
-console.log(arr);
-let arr1;
-arr1 = {
-    first: "string",
-    second: 35,
-    third: true,
-};
-arr1 = {
-    1: 25, //TypeScript allows numeric keys in objects defined with { [key: string]: any } because TypeScript understands that numeric keys will be converted to strings in JS file so no error.
-    second: "shivendra",
-};
-console.log(arr1);
-let newVar;
-console.log(newVar);
-console.log(typeof newVar);
+// let mine : any;
+// mine = "shivendra";
+// mine = 25;
+// mine = true;
+// let arr : any;
+// arr = ['shivendra', 25, false, null, undefined];
+// console.log(arr)
+// let arr1 : { [key : string] : any };
+// arr1 = {
+//     first :"string",
+//     second : 35,
+//     third : true,
+// }
+// arr1 = {
+//     1 : 25, //TypeScript allows numeric keys in objects defined with { [key: string]: any } because TypeScript understands that numeric keys will be converted to strings in JS file so no error.
+//     second : "shivendra",
+// }
+// console.log(arr1);
+// let newVar;
+// console.log(newVar);
+// console.log( typeof newVar);
+//Union type in TS
+let user = null;
+function getUser() {
+    const uName = "shivendra";
+    const uAge = 25;
+    user = { name: uName, age: uAge };
+    return user;
+}
+// console.log(getUser());
+function printState(message, code) {
+    console.log(message + " " + "Status code " + code);
+}
+printState("Request found", 200);
+printState("Request was not found", ' 404');
+function printState1(message, code) {
+    if (typeof code === 'string') {
+        console.log(message + " " + "Status code " + code.trim());
+    }
+    else {
+        console.log(message + " " + "Status code " + code);
+    }
+}
+printState1("Request found", 200);
+printState1("Request was not found", ' 404');
