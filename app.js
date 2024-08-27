@@ -40,19 +40,39 @@
 // tupleArray.unshift("naHi pata ji");
 // console.log(tupleArray);
 //enum types in typescript
-var mine;
-(function (mine) {
-    mine[mine["up"] = 2] = "up";
-    mine[mine["down"] = 3] = "down";
-    mine[mine["left"] = 4] = "left";
-    mine[mine["right"] = 5] = "right";
-})(mine || (mine = {}));
-console.log(mine.right);
-var Direction;
-(function (Direction) {
-    Direction[Direction["Up"] = 1] = "Up";
-    Direction["Down"] = "down";
-    Direction[Direction["Left"] = 2] = "Left";
-    Direction["Right"] = "right";
-})(Direction || (Direction = {}));
-console.log(Direction.Right + " " + Direction.Up);
+// enum mine {
+//     up = 2,
+//     down,
+//     left,
+//     right
+// }
+// console.log(mine.right);
+// enum Direction {
+//     Up = 1,
+//     Down = 'down',
+//     Left = 2,
+//     Right = 'right'
+// }
+// console.log(Direction.Right +" "+ Direction.Up);
+//'any' type in TS
+let mine;
+mine = "shivendra";
+mine = 25;
+mine = true;
+let arr;
+arr = ['shivendra', 25, false, null, undefined];
+console.log(arr);
+let arr1;
+arr1 = {
+    first: "string",
+    second: 35,
+    third: true,
+};
+arr1 = {
+    1: 25, //TypeScript allows numeric keys in objects defined with { [key: string]: any } because TypeScript understands that numeric keys will be converted to strings in JS file so no error.
+    second: "shivendra",
+};
+console.log(arr1);
+let newVar;
+console.log(newVar);
+console.log(typeof newVar);
