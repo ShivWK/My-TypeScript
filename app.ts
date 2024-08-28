@@ -138,11 +138,42 @@ export {};
 
 //literal types in TS
 
-    let name : 'shivendra' | 23 | true | {name : "shuv", age : 23} | ["shuv", 25, true] | null | undefined= 'shivendra'
-    const mane2 = 'shive';
-    name = 23;
-    name = true;
-    name = {name : "shuv", age : 23};
-    name = ['shuv', 25, true];
-    name = null;
-    name = undefined;
+    // let name : 'shivendra' | 23 | true | {name : "shuv", age : 23} | ["shuv", 25, true] | null | undefined= 'shivendra'
+    // const mane2 = 'shive';
+    // name = 23;
+    // name = true;
+    // name = {name : "shuv", age : 23};
+    // name = ['shuv', 25, true];
+    // name = null;
+    // name = undefined;
+
+//type alias in TS
+
+type StrOrNum = string | number;
+
+let user : StrOrNum = "shivendra";
+user = 35;
+
+type User = { 
+    name : string,
+    age : number,
+    address : string,
+}
+
+let user1 : User = {
+    name : "sahil",
+    age : 15,
+    address : 'Triveni 91',
+}
+ 
+type UserArray = (string | number )[];
+
+let myArray : UserArray = ["sahil", 24 , 'priya' , 29, 'riya' , 28];
+
+type UserFunction = (name : string) => number;
+
+let user3 : UserFunction = (shoo) => {
+    console.log(shoo);
+    return 25;
+};
+console.log(user3("shiv"));
