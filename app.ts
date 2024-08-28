@@ -1,5 +1,7 @@
 //tsc app.ts --module ESNext --target ES6
 
+export {};
+
 //TypeScript function
 
     // function sum(num1 : number, num2 : number) {
@@ -102,34 +104,45 @@
 
 //Union type in TS
 
-let user : {name : string; age : number} | null = null;
+    // let user : {name : string; age : number} | null = null;
 
-function getUser() {
-    const uName = "shivendra";
-    const uAge = 25;
+    // function getUser() {
+    //     const uName = "shivendra";
+    //     const uAge = 25;
 
-    user = {name : uName, age : uAge};
+    //     user = {name : uName, age : uAge};
 
-    return user;
-}
+    //     return user;
+    // }
 
-// console.log(getUser());
+    // console.log(getUser());
 
-function printState(message : string , code : string | number) {
-    console.log(message + " " + "Status code "+code);
-}
+    // function printState(message : string , code : string | number) {
+    //     console.log(message + " " + "Status code "+code);
+    // }
 
-printState("Request found", 200);
-printState("Request was not found", ' 404')
+    // printState("Request found", 200);
+    // printState("Request was not found", ' 404')
 
-function printState1(message : string , code : string | number) {
-    if (typeof code === 'string') {
-        console.log(message + " " + "Status code "+code.trim());
-    } else {
-        console.log(message + " " + "Status code "+code);
-    }
-    
-}
+    // function printState1(message : string , code : string | number) {
+    //     if (typeof code === 'string') {
+    //         console.log(message + " " + "Status code "+code.trim());
+    //     } else {
+    //         console.log(message + " " + "Status code "+code);
+    //     }
+        
+    // }
 
-printState1("Request found", 200);
-printState1("Request was not found", ' 404')
+    // printState1("Request found", 200);
+    // printState1("Request was not found", ' 404');
+
+//literal types in TS
+
+    let name : 'shivendra' | 23 | true | {name : "shuv", age : 23} | ["shuv", 25, true] | null | undefined= 'shivendra'
+    const mane2 = 'shive';
+    name = 23;
+    name = true;
+    name = {name : "shuv", age : 23};
+    name = ['shuv', 25, true];
+    name = null;
+    name = undefined;
