@@ -149,31 +149,44 @@ export {};
 
 //type alias in TS
 
-type StrOrNum = string | number;
+    // type StrOrNum = string | number;
 
-let user : StrOrNum = "shivendra";
-user = 35;
+    // let user : StrOrNum = "shivendra";
+    // user = 35;
 
-type User = { 
-    name : string,
-    age : number,
-    address : string,
+    // type User = { 
+    //     name : string,
+    //     age : number,
+    //     address : string,
+    // }
+
+    // let user1 : User = {
+    //     name : "sahil",
+    //     age : 15,
+    //     address : 'Triveni 91',
+    // }
+    
+    // type UserArray = (string | number )[];
+
+    // let myArray : UserArray = ["sahil", 24 , 'priya' , 29, 'riya' , 28];
+
+    type UserFunction = (name : string) => number;
+
+    // let user3 : UserFunction = (shoo) => {
+    //     console.log(shoo);
+    //     return 25;
+    // };
+    // console.log(user3("shiv"));
+
+//Function return type in TS
+
+function mine(num1 : number , str : string) {
+    console.log(num1 + str);
 }
 
-let user1 : User = {
-    name : "sahil",
-    age : 15,
-    address : 'Triveni 91',
+function mine2(str1) : number {
+    return str1
 }
- 
-type UserArray = (string | number )[];
 
-let myArray : UserArray = ["sahil", 24 , 'priya' , 29, 'riya' , 28];
+console.log(mine2(52));
 
-type UserFunction = (name : string) => number;
-
-let user3 : UserFunction = (shoo) => {
-    console.log(shoo);
-    return 25;
-};
-console.log(user3("shiv"));
