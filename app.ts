@@ -230,3 +230,16 @@ export {};
     // }
 
     // greet = sum;
+
+//Function type for callback function
+
+function getData(num1 : number, num2 : number, print : (str : string, num : number) => void) {
+    let sum  = num1 + num2;
+    print("the sum is ", sum);
+}
+
+function callBack(str : string , num2 : number) : void {
+    console.log(str, num2);
+}
+
+getData(2, 4, callBack);
