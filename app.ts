@@ -190,3 +190,14 @@ function mine2(str1) : number {
 
 console.log(mine2(52));
 
+function mine3(a : string, b : string) : void {
+   
+   console.log(a + b)
+    // return a + b;
+}
+mine3("Shivendra", " Dwivedi");
+
+function objFunc(name : string , age : number) : {name : string; age : number;} {
+    return { name : name, age : age};
+}
+console.log(objFunc("shiv", 25));
