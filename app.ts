@@ -170,7 +170,7 @@ export {};
 
     // let myArray : UserArray = ["sahil", 24 , 'priya' , 29, 'riya' , 28];
 
-    type UserFunction = (name : string) => number;
+    // type UserFunction = (name : string) => number;
 
     // let user3 : UserFunction = (shoo) => {
     //     console.log(shoo);
@@ -180,24 +180,53 @@ export {};
 
 //Function return type in TS
 
-function mine(num1 : number , str : string) {
-    console.log(num1 + str);
-}
+    // function mine(num1 : number , str : string) {
+    //     console.log(num1 + str);
+    // }
 
-function mine2(str1) : number {
-    return str1
-}
+    // function mine2(str1) : number {
+    //     return str1
+    // }
 
-console.log(mine2(52));
+    // console.log(mine2(52));
 
-function mine3(a : string, b : string) : void {
-   
-   console.log(a + b)
-    // return a + b;
-}
-mine3("Shivendra", " Dwivedi");
+    // function mine3(a : string, b : string) : void {
+    
+    // console.log(a + b)
+    //     // return a + b;
+    // }
+    // mine3("Shivendra", " Dwivedi");
 
-function objFunc(name : string , age : number) : {name : string; age : number;} {
-    return { name : name, age : age};
-}
-console.log(objFunc("shiv", 25));
+    // function objFunc(name : string , age : number) : {name : string; age : number;} {
+    //     return { name : name, age : age};
+    // }
+    // console.log(objFunc("shiv", 25));
+
+//function type in TS
+
+    // type User = {name : string; age : number};
+
+    // function greetUser(user : User) : void {
+    //     console.log('hello, '+user.name);
+    // }
+
+    //         // let greet
+    //         // greet = greetUser;
+    //         // greet({name : "Shivendra", age : 25});
+
+    //         // greet = 100;
+    //         // greet("mine");
+
+    //     // let greet : (name : User) => void;
+    //     // greet = greetUser;
+
+    //     // greet = 100;
+    //     // greet({name : "Sahil", age : 25});
+
+    // let greet = greetUser;
+
+    // function sum(a : number) : number {
+    //     return 4 + a;
+    // }
+
+    // greet = sum;

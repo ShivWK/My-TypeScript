@@ -1,24 +1,10 @@
 //tsc app.ts --module ESNext --target ES6
-// let user3 : UserFunction = (shoo) => {
-//     console.log(shoo);
-//     return 25;
-// };
-// console.log(user3("shiv"));
-//Function return type in TS
-function mine(num1, str) {
-    console.log(num1 + str);
+function greetUser(user) {
+    console.log('hello, ' + user.name);
 }
-function mine2(str1) {
-    return str1;
-}
-console.log(mine2(52));
-function mine3(a, b) {
-    console.log(a + b);
-    // return a + b;
-}
-mine3("Shivendra", " Dwivedi");
-function objFunc(name, age) {
-    return { name: name, age: age };
-}
-console.log(objFunc("shiv", 25));
+let greet;
+greet = greetUser;
+greet({ name: "Shivendra", age: 25 });
+greet = 100;
+greet("mine");
 export {};
