@@ -176,27 +176,37 @@
 // }
 // getData(2, 4, callBack);
 //unknown type in TS
-let inputValue;
-inputValue = 100;
-// console.log(typeof inputValue);
-inputValue = "Shivendra";
-// console.log(typeof inputValue);
-// inputValue = true;
-// console.log(typeof inputValue);
-console.log(" ");
-// let inputValue2 : any;
-// inputValue2 = 1000;
-// console.log(typeof inputValue2);
-// inputValue2 = true;
-// console.log(typeof inputValue2);
-// inputValue2 = "string";
-// console.log(typeof inputValue2);
-let newValue = "string";
-if (typeof inputValue === 'string') {
-    newValue = inputValue;
-}
-console.log(newValue);
-console.log(typeof inputValue);
-export {};
+// let inputValue : unknown;
+// inputValue = 100;
+// // console.log(typeof inputValue);
+// inputValue = "Shivendra";
+// // console.log(typeof inputValue);
+// // inputValue = true;
+// // console.log(typeof inputValue);
+// console.log(" ");
+//         // let inputValue2 : any;
+//         // inputValue2 = 1000;
+//         // console.log(typeof inputValue2);
+//         // inputValue2 = true;
+//         // console.log(typeof inputValue2);
+//         // inputValue2 = "string";
+//         // console.log(typeof inputValue2);
+// let newValue = "string";
+// if (typeof inputValue === 'string') {
+//     newValue = inputValue;
+// }
+// console.log(newValue);
+// console.log(typeof inputValue)
 // newValue = inputValue;
 // newValue = inputValue2;
+//never type in TS
+let neverVar;
+//neverVar = 'string';
+function consoleOut(name) {
+    //    console.log(name);
+    // while (true) {
+    //     // console.log(name);
+    // }
+}
+consoleOut("shivendra");
+export {};

@@ -281,3 +281,18 @@ export {};
     // newValue = inputValue;
 
     // newValue = inputValue2;
+
+//never type in TS
+
+let neverVar : never ;
+
+//neverVar = 'string';
+
+function consoleOut(name : string) : never {
+//    console.log(name);
+    while (true) {
+        // console.log(name);
+    }
+}
+// 
+consoleOut("shivendra");
