@@ -233,13 +233,51 @@ export {};
 
 //Function type for callback function
 
-function getData(num1 : number, num2 : number, print : (str : string, num : number) => void) {
-    let sum  = num1 + num2;
-    print("the sum is ", sum);
-}
+    // function getData(num1 : number, num2 : number, print : (str : string, num : number) => void) {
+    //     let sum  = num1 + num2;
+    //     print("the sum is ", sum);
+    // }
 
-function callBack(str : string , num2 : number) : void {
-    console.log(str, num2);
-}
+    // function callBack(str : string , num2 : number) : void {
+    //     console.log(str, num2);
+    // }
 
-getData(2, 4, callBack);
+    // getData(2, 4, callBack);
+
+//unknown type in TS
+
+    // let inputValue : unknown;
+
+    // inputValue = 100;
+    // // console.log(typeof inputValue);
+
+    // inputValue = "Shivendra";
+    // // console.log(typeof inputValue);
+
+    // // inputValue = true;
+    // // console.log(typeof inputValue);
+
+    // console.log(" ");
+
+
+    //         // let inputValue2 : any;
+
+    //         // inputValue2 = 1000;
+    //         // console.log(typeof inputValue2);
+    //         // inputValue2 = true;
+    //         // console.log(typeof inputValue2);
+    //         // inputValue2 = "string";
+    //         // console.log(typeof inputValue2);
+
+
+    // let newValue = "string";
+
+    // if (typeof inputValue === 'string') {
+    //     newValue = inputValue;
+    // }
+
+    // console.log(newValue);
+    // console.log(typeof inputValue)
+    // newValue = inputValue;
+
+    // newValue = inputValue2;
