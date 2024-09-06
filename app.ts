@@ -288,11 +288,13 @@ let neverVar : never ;
 
 //neverVar = 'string';
 
-function consoleOut(name : string) : never {
+// function consoleOut(name : string) : never {
 //    console.log(name);
-    while (true) {
-        // console.log(name);
-    }
-}
+    // while (true) {
+    //     // console.log(name);
+    // }
+// }
 // 
-consoleOut("shivendra");
+// consoleOut("shivendra");
+
+console.log("i'm in one toe you shivendra 3");

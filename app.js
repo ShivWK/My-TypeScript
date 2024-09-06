@@ -202,11 +202,13 @@
 //never type in TS
 let neverVar;
 //neverVar = 'string';
-function consoleOut(name) {
-    //    console.log(name);
-    // while (true) {
-    //     // console.log(name);
-    // }
-}
-consoleOut("shivendra");
+// function consoleOut(name : string) : never {
+//    console.log(name);
+// while (true) {
+//     // console.log(name);
+// }
+// }
+// 
+// consoleOut("shivendra");
+console.log("i'm in one toe you shivendra 3");
 export {};
