@@ -200,7 +200,7 @@
 // newValue = inputValue;
 // newValue = inputValue2;
 //never type in TS
-let neverVar;
+// let neverVar : never ;
 //neverVar = 'string';
 // function consoleOut(name : string) : never {
 //    console.log(name);
@@ -210,5 +210,9 @@ let neverVar;
 // }
 // 
 // consoleOut("shivendra");
-console.log("i'm in one toe you shivendra 3");
+//Compiler Modification
+const btn = document.getElementById("btn");
+btn.addEventListener('click', () => {
+    console.log("clicked");
+});
 export {};

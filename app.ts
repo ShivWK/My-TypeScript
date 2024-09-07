@@ -284,17 +284,22 @@ export {};
 
 //never type in TS
 
-let neverVar : never ;
+    // let neverVar : never ;
 
-//neverVar = 'string';
+    //neverVar = 'string';
 
-// function consoleOut(name : string) : never {
-//    console.log(name);
-    // while (true) {
-    //     // console.log(name);
+    // function consoleOut(name : string) : never {
+    //    console.log(name);
+        // while (true) {
+        //     // console.log(name);
+        // }
     // }
-// }
-// 
-// consoleOut("shivendra");
+    // 
+    // consoleOut("shivendra");
 
-console.log("i'm in one toe you shivendra 3");
+//Compiler Modification
+
+const btn = document.getElementById("btn")!;
+btn.addEventListener('click' , () => {
+    console.log("clicked");
+})
