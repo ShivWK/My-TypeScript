@@ -54,9 +54,45 @@
 
 //Class
 
+    // class Person {
+
+    //     constructor(public empName : string, private salary : number, public baseLocation : string, public isEligible : boolean, private hike : number, readonly empid : number) {
+
+    //     }
+
+    //     public getSalary() {
+    //         if (this.isEligible) {
+    //             return this.getNewSalary();
+    //         }
+
+    //         return this.salary;
+    //     }
+
+    //     private getNewSalary() {
+    //         return this.salary + this.salary * this.hike/100;
+    //     }
+    // }
+
+    // class Employee extends Person {
+    //     constructor(public bonus : number, eN : string, sal : number, bL : string, isE : boolean, hk : number, eId : number) {
+    //         super(eN, sal, bL, isE, hk, eId);
+    //     }
+
+    //     getName() {
+    //         return this.empName;
+    //     }
+    // }
+
+    // const obj = new Employee(200000, "shivendra", 180000, "Naini", true, 50, 101);
+    // console.log(obj.getName());
+    // console.log(obj.getSalary());
+    // console.log(obj.empid);
+
+//Overriding and Protected A.M
+
     class Person {
 
-        constructor(public empName : string, private salary : number, public baseLocation : string, public isEligible : boolean, private hike : number, readonly empid : number) {
+        constructor(public empName : string, protected salary : number, public baseLocation : string, public isEligible : boolean, protected hike : number, readonly empid : number) {
 
         }
 
@@ -68,7 +104,8 @@
             return this.salary;
         }
 
-        private getNewSalary() {
+        getNewSalary() {
+            console.log("getNewSalary of person");
             return this.salary + this.salary * this.hike/100;
         }
     }
@@ -81,9 +118,18 @@
         getName() {
             return this.empName;
         }
+
+        getNewSalary() {
+            console.log("getNewSalary of child")
+            return this.salary + this.salary * this.hike/100;
+        }
+
     }
 
     const obj = new Employee(200000, "shivendra", 180000, "Naini", true, 50, 101);
-    console.log(obj.getName());
-    console.log(obj.getSalary());
-    console.log(obj.empid);
+    const obj2 = new Person("Sahil", 150000, "Naini", true, 75, 123)
+    // console.log(obj.getName());
+    // console.log(obj.getSalary());
+    // console.log(obj.empid);
+    console.log(obj.getNewSalary());
+    // console.log(obj2.getNewSalary());

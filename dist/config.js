@@ -14,6 +14,7 @@ class Person {
         return this.salary;
     }
     getNewSalary() {
+        console.log("getNewSalary of person");
         return this.salary + this.salary * this.hike / 100;
     }
 }
@@ -25,8 +26,11 @@ class Employee extends Person {
     getName() {
         return this.empName;
     }
+    getNewSalary() {
+        console.log("getNewSalary of child");
+        return this.salary + this.salary * this.hike / 100;
+    }
 }
 const obj = new Employee(200000, "shivendra", 180000, "Naini", true, 50, 101);
-console.log(obj.getName());
-console.log(obj.getSalary());
-console.log(obj.empid);
+const obj2 = new Person("Sahil", 150000, "Naini", true, 75, 123);
+console.log(obj.getNewSalary());
