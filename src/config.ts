@@ -137,30 +137,59 @@
 
 //getter and setter functions
 
-    class Getset {
-        private _name : string | null = null;
-        public age : number;
+    // class Getset {
+    //     private _name : string | null = null;
+    //     public age : number;
 
-        get name() {
-            return this._name;
+    //     get name() {
+    //         return this._name;
+    //     }
+
+    //     set name(nm) {
+    //         if (nm.length < 4) {
+    //             throw new Error("Too short name");
+    //         } else {
+    //             this._name = nm;
+    //         }
+    //     }
+
+    //     constructor(age : number) {
+    //         this.age = age;
+    //     }
+
+    // }
+
+    // const obj = new Getset(25);
+    // obj.name = "Shivendra";
+    // console.log(obj.name);
+ 
+// Abstract class
+
+    abstract class Person {
+        public firstName : string;
+        public lastName : string;
+
+        abstract getSalary() : number;
+
+        constructor(fn : string, ln : string) {
+            this.firstName = fn;
+            this.lastName  = ln;
         }
-
-        set name(nm) {
-            if (nm.length < 4) {
-                throw new Error("Too short name");
-            } else {
-                this._name = nm;
-            }
-        }
-
-        constructor(age : number) {
-            this.age = age;
-        }
-
     }
 
-    const obj = new Getset(25);
-    obj.name = "Shivendra";
-    console.log(obj.name);
-    
+    class Employee extends Person {
+        private salary : number;
+
+        constructor(fn : string, ln : string, sal : number) {
+            super(fn, ln);
+            this.salary = sal;
+        }
+
+        getSalary() : number {
+            return this.salary;
+        }
+    }
+
+    const obj = new Employee("Shiv", "Dwivedi", 180000);
+    console.log(obj.getSalary());
 
