@@ -165,36 +165,71 @@
  
 // Abstract class
 
-    abstract class Person {
+    // abstract class Person {
+    //     public firstName : string;
+    //     public lastName : string;
+
+    //     abstract getSalary() : number;
+
+    //     getName() {
+    //         return this.firstName +" "+ this.lastName;
+    //     }
+
+    //     constructor(fn : string, ln : string) {
+    //         this.firstName = fn;
+    //         this.lastName  = ln;
+    //     }
+    // }
+
+    // class Employee extends Person {
+    //     private salary : number;
+
+    //     constructor(fn : string, ln : string, sal : number) {
+    //         super(fn, ln);
+    //         this.salary = sal;
+    //     }
+
+    //     getSalary() : number {
+    //         return this.salary;
+    //     }
+    // }
+
+    // const obj = new Employee("Shivendra", "Dwivedi", 180000);
+    // console.log(obj.getSalary());
+    // console.log(obj.getName());
+
+//Static method and property
+
+    class StaticWali {
         public firstName : string;
         public lastName : string;
-
-        abstract getSalary() : number;
-
-        getName() {
-            return this.firstName +" "+ this.lastName;
-        }
-
+        public static count : number = 0;
+        
         constructor(fn : string, ln : string) {
             this.firstName = fn;
-            this.lastName  = ln;
+            this.lastName = ln;
+            StaticWali.count++;
+        }
+
+        getName() {
+            return this.firstName + " " + this.lastName;
+        }
+
+        getCounter() {
+            return StaticWali.count;
+        }
+
+        static getCount() {
+            return StaticWali.count;
         }
     }
 
-    class Employee extends Person {
-        private salary : number;
+    const obj1 = new StaticWali("Shivendra", "Dwivedi");
+    const obj2 = new StaticWali("Shivendra", "Dwivedi");
+    const obj3 = new StaticWali("Shivendra", "Dwivedi");
+    const obj4 = new StaticWali("Shivendra", "Dwivedi");
 
-        constructor(fn : string, ln : string, sal : number) {
-            super(fn, ln);
-            this.salary = sal;
-        }
-
-        getSalary() : number {
-            return this.salary;
-        }
-    }
-
-    const obj = new Employee("Shivendra", "Dwivedi", 180000);
-    console.log(obj.getSalary());
-    console.log(obj.getName());
+    console.log(obj1.getName());
+    console.log(obj1.getCounter())
+    console.log(StaticWali.getCount());
 
