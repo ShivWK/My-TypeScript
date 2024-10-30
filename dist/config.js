@@ -1,36 +1,20 @@
-class Person {
-    constructor(empName, salary, baseLocation, isEligible, hike, empid) {
-        this.empName = empName;
-        this.salary = salary;
-        this.baseLocation = baseLocation;
-        this.isEligible = isEligible;
-        this.hike = hike;
-        this.empid = empid;
+class Getset {
+    get name() {
+        return this._name;
     }
-    getSalary() {
-        if (this.isEligible) {
-            return this.getNewSalary();
+    set name(nm) {
+        if (nm.length < 4) {
+            throw new Error("Too short name");
         }
-        return this.salary;
+        else {
+            this._name = nm;
+        }
     }
-    getNewSalary() {
-        console.log("getNewSalary of person");
-        return this.salary + this.salary * this.hike / 100;
-    }
-}
-class Employee extends Person {
-    constructor(bonus, eN, sal, bL, isE, hk, eId) {
-        super(eN, sal, bL, isE, hk, eId);
-        this.bonus = bonus;
-    }
-    getName() {
-        return this.empName;
-    }
-    getNewSalary() {
-        console.log("getNewSalary of child");
-        return this.salary + this.salary * this.hike / 100;
+    constructor(age) {
+        this._name = null;
+        this.age = age;
     }
 }
-const obj = new Employee(200000, "shivendra", 180000, "Naini", true, 50, 101);
-const obj2 = new Person("Sahil", 150000, "Naini", true, 75, 123);
-console.log(obj.getNewSalary());
+const obj = new Getset(25);
+obj.name = "Shivendra";
+console.log(obj.name);
