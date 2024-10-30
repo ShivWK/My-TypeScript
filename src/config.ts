@@ -171,6 +171,10 @@
 
         abstract getSalary() : number;
 
+        getName() {
+            return this.firstName +" "+ this.lastName;
+        }
+
         constructor(fn : string, ln : string) {
             this.firstName = fn;
             this.lastName  = ln;
@@ -190,6 +194,7 @@
         }
     }
 
-    const obj = new Employee("Shiv", "Dwivedi", 180000);
+    const obj = new Employee("Shivendra", "Dwivedi", 180000);
     console.log(obj.getSalary());
+    console.log(obj.getName());
 
