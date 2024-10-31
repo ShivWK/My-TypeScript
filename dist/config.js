@@ -1,24 +1,21 @@
-class StaticWali {
-    constructor(fn, ln) {
-        this.firstName = fn;
-        this.lastName = ln;
-        StaticWali.count++;
+class Member {
+    constructor(firstName, lastName, age, address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.address = address;
     }
-    getName() {
+    getFullName() {
         return this.firstName + " " + this.lastName;
     }
-    getCounter() {
-        return StaticWali.count;
+    getAge() {
+        return this.age;
     }
-    static getCount() {
-        return StaticWali.count;
+    getAddress() {
+        return this.address;
     }
 }
-StaticWali.count = 0;
-const obj1 = new StaticWali("Shivendra", "Dwivedi");
-const obj2 = new StaticWali("Shivendra", "Dwivedi");
-const obj3 = new StaticWali("Shivendra", "Dwivedi");
-const obj4 = new StaticWali("Shivendra", "Dwivedi");
-console.log(obj1.getName());
-console.log(obj1.getCounter());
-console.log(StaticWali.getCount());
+const mem = new Member("Shivendra", "Dwivedi", 25, "Naini Prayagraj");
+console.log(mem.getFullName());
+console.log(mem.getAge());
+console.log(mem.getAddress());

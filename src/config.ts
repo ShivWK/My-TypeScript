@@ -200,36 +200,79 @@
 
 //Static method and property
 
-    class StaticWali {
-        public firstName : string;
-        public lastName : string;
-        public static count : number = 0;
+    // class StaticWali {
+    //     public firstName : string;
+    //     public lastName : string;
+    //     public static count : number = 0;
         
-        constructor(fn : string, ln : string) {
-            this.firstName = fn;
-            this.lastName = ln;
-            StaticWali.count++;
-        }
+    //     constructor(fn : string, ln : string) {
+    //         this.firstName = fn;
+    //         this.lastName = ln;
+    //         StaticWali.count++;
+    //     }
 
-        getName() {
-            return this.firstName + " " + this.lastName;
-        }
+    //     getName() {
+    //         return this.firstName + " " + this.lastName;
+    //     }
 
-        getCounter() {
-            return StaticWali.count;
-        }
+    //     getCounter() {
+    //         return StaticWali.count;
+    //     }
 
-        static getCount() {
-            return StaticWali.count;
-        }
+    //     static getCount() {
+    //         return StaticWali.count;
+    //     }
+    // }
+
+    // const obj1 = new StaticWali("Shivendra", "Dwivedi");
+    // const obj2 = new StaticWali("Shivendra", "Dwivedi");
+    // const obj3 = new StaticWali("Shivendra", "Dwivedi");
+    // const obj4 = new StaticWali("Shivendra", "Dwivedi");
+
+    // console.log(obj1.getName());
+    // console.log(obj1.getCounter())
+    // console.log(StaticWali.getCount());
+
+//Interfaces
+
+    interface User1 {
+        firstName : string;
+        lastName : string;
+
+        getFullName() : string;
     }
 
-    const obj1 = new StaticWali("Shivendra", "Dwivedi");
-    const obj2 = new StaticWali("Shivendra", "Dwivedi");
-    const obj3 = new StaticWali("Shivendra", "Dwivedi");
-    const obj4 = new StaticWali("Shivendra", "Dwivedi");
+    interface User2 {
+        age : number;
+        getAge() : number;
+    }
 
-    console.log(obj1.getName());
-    console.log(obj1.getCounter())
-    console.log(StaticWali.getCount());
+    interface User3 extends User1 , User2{
+        address : string;
 
+        getAddress() : string;
+    }
+
+    class Member implements User3 {
+        constructor(public firstName : string, public lastName : string, public age : number, public address : string) {
+
+        }
+
+        getFullName() {
+            return this.firstName + " " + this.lastName; 
+        }
+
+        getAge() {
+            return this.age;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+    }
+
+    const mem = new Member("Shivendra", "Dwivedi", 25, "Naini Prayagraj");
+    console.log(mem.getFullName());
+    console.log(mem.getAge());
+    console.log(mem.getAddress());
