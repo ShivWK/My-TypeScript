@@ -235,44 +235,58 @@
 
 //Interfaces
 
-    interface User1 {
-        firstName : string;
-        lastName : string;
+    // interface User1 {
+    //     firstName : string;
+    //     lastName : string;
 
-        getFullName() : string;
-    }
+    //     getFullName() : string;
+    // }
 
-    interface User2 {
-        age : number;
-        getAge() : number;
-    }
+    // interface User2 {
+    //     age : number;
+    //     getAge() : number;
+    // }
 
-    interface User3 extends User1 , User2{
-        address : string;
+    // interface User3 extends User1 , User2{
+    //     address : string;
 
-        getAddress() : string;
-    }
+    //     getAddress() : string;
+    // }
 
-    class Member implements User3 {
-        constructor(public firstName : string, public lastName : string, public age : number, public address : string) {
+    // class Member implements User3 {
+    //     constructor(public firstName : string, public lastName : string, public age : number, public address : string) {
 
+    //     }
+
+    //     getFullName() {
+    //         return this.firstName + " " + this.lastName; 
+    //     }
+
+    //     getAge() {
+    //         return this.age;
+    //     }
+
+    //     getAddress() {
+    //         return this.address;
+    //     }
+
+    // }
+
+    // const mem = new Member("Shivendra", "Dwivedi", 25, "Naini Prayagraj");
+    // console.log(mem.getFullName());
+    // console.log(mem.getAge());
+    // console.log(mem.getAddress());
+
+    //Interfaces as type for function
+
+        interface Sumfn {
+            (num1 : number, num2 : number) : number;
         }
 
-        getFullName() {
-            return this.firstName + " " + this.lastName; 
+        let add : Sumfn;
+
+        add = (n1 : number , n2 : number) {
+            return n1 + n2;
         }
 
-        getAge() {
-            return this.age;
-        }
-
-        getAddress() {
-            return this.address;
-        }
-
-    }
-
-    const mem = new Member("Shivendra", "Dwivedi", 25, "Naini Prayagraj");
-    console.log(mem.getFullName());
-    console.log(mem.getAge());
-    console.log(mem.getAddress());
+        
