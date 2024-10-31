@@ -292,32 +292,49 @@
     // Readonly and optional properties in Interfaces
 
         //Readonly
-        
-        interface i1 {
-            firstname : string;
-            lastname : string;
-            readonly age : number;
 
-            getName() : string;
-        }
+        // interface i1 {
+        //     firstname : string;
+        //     lastname : string;
+        //     readonly age : number;
 
-        class Mine implements i1 {
-            constructor(public firstname : string, public lastname : string, public age : number) {
+        //     getName() : string;
+        // }
 
-            }
+        // class Mine implements i1 {
+        //     constructor(public firstname : string, public lastname : string, public age : number) {
 
-            getName() {
-                return this.firstname + " " + this.lastname;
-            }
-        }
+        //     }
 
-        const obj = new Mine("Shivendra", "Dwivedi" , 25);
-        obj.age = 24;
+        //     getName() {
+        //         return this.firstname + " " + this.lastname;
+        //     }
+        // }
+
+        // const obj = new Mine("Shivendra", "Dwivedi" , 25);
+        // obj.age = 24;
 
 
-        const obj2 : i1 = new Mine("Shivendra", "Dwivedi" , 25);
-        obj2.age = 24;
+        // const obj2 : i1 = new Mine("Shivendra", "Dwivedi" , 25);
+        // obj2.age = 24;
 
         //Optional
+
+        interface i2 {
+            firstName : string;
+            lastName : string;
+            age ?: number;
+        }
+
+        class Mine implements i2 {
+            constructor(public firstName : string, public lastName : string) {
+
+            }
+        }
+
+        const obj = new Mine("Shivendra", "Dwivedi");
+        obj.age = 25; //Property age doesnt exists in type Mine
+
+        
 
         
