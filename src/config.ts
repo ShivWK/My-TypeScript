@@ -279,14 +279,45 @@
 
     //Interfaces as type for function
 
-        interface Sumfn {
-            (num1 : number, num2 : number) : number;
+        // interface Sumfn {
+        //     (num1 : number, num2 : number) : number;
+        // }
+
+        // let add : Sumfn;
+
+        // add = (n1 : number , n2 : number) => {
+        //     return n1 + n2;
+        // }
+
+    // Readonly and optional properties in Interfaces
+
+        //Readonly
+        
+        interface i1 {
+            firstname : string;
+            lastname : string;
+            readonly age : number;
+
+            getName() : string;
         }
 
-        let add : Sumfn;
+        class Mine implements i1 {
+            constructor(public firstname : string, public lastname : string, public age : number) {
 
-        add = (n1 : number , n2 : number) => {
-            return n1 + n2;
+            }
+
+            getName() {
+                return this.firstname + " " + this.lastname;
+            }
         }
 
+        const obj = new Mine("Shivendra", "Dwivedi" , 25);
+        obj.age = 24;
 
+
+        const obj2 : i1 = new Mine("Shivendra", "Dwivedi" , 25);
+        obj2.age = 24;
+
+        //Optional
+
+        
