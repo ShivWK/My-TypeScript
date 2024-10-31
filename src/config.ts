@@ -320,21 +320,37 @@
 
         //Optional
 
-        interface i2 {
+        // interface i2 {
+        //     firstName : string;
+        //     lastName : string;
+        //     age ?: number;
+        // }
+
+        // class Mine implements i2 {
+        //     constructor(public firstName : string, public lastName : string) {
+
+        //     }
+        // }
+
+        // const obj = new Mine("Shivendra", "Dwivedi");
+        // obj.age = 25; //Property age doesnt exists in type Mine
+
+    //Optional property in classes
+
+        class OptionalJi {
             firstName : string;
             lastName : string;
             age ?: number;
-        }
-
-        class Mine implements i2 {
-            constructor(public firstName : string, public lastName : string) {
-
+            
+            constructor (fn : string, ln : string , age?: number) {
+                this.firstName = fn;
+                this.lastName = ln;
             }
         }
 
-        const obj = new Mine("Shivendra", "Dwivedi");
-        obj.age = 25; //Property age doesnt exists in type Mine
-
+        const obj = new OptionalJi("Shiv", "Shena");
         
+
+
 
         
