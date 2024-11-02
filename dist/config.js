@@ -1,21 +1,10 @@
-class Member {
-    constructor(firstName, lastName, age, address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.address = address;
+function greetUser(user) {
+    if ("email" in user) {
+        console.log(`Hi I'm ${user.name} and my mail is ${user.email}`);
     }
-    getFullName() {
-        return this.firstName + " " + this.lastName;
-    }
-    getAge() {
-        return this.age;
-    }
-    getAddress() {
-        return this.address;
+    else {
+        console.log(`Hi I'm ${user.name}`);
     }
 }
-const mem = new Member("Shivendra", "Dwivedi", 25, "Naini Prayagraj");
-console.log(mem.getFullName());
-console.log(mem.getAge());
-console.log(mem.getAddress());
+greetUser({ name: "Shivendra" });
+greetUser({ name: "shivendra", email: "shivendrawk@gamil.com" });

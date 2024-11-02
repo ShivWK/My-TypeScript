@@ -337,19 +337,51 @@
 
     //Optional property in classes
 
-        class OptionalJi {
-            firstName : string;
-            lastName : string;
-            age ?: number;
+        // class OptionalJi {
+        //     firstName : string;
+        //     lastName : string;
+        //     age ?: number;
             
-            constructor (fn : string, ln : string , age?: number) {
-                this.firstName = fn;
-                this.lastName = ln;
+        //     constructor (fn : string, ln : string , age?: number) {
+        //         this.firstName = fn;
+        //         this.lastName = ln;
+        //     }
+        // }
+
+        // const obj = new OptionalJi("Shiv", "Shena");
+        
+//Type guarding
+
+    //In operator
+
+        const Obj = {
+            prop1 : "Shivendra",
+            prop2 : undefined,
+        }
+
+        console.log('prop1' in Obj);
+        console.log('toString' in Obj);
+
+    //Type checkingh with interfaces
+
+        type User = {
+            name : string,
+            email ?: string,
+        }
+
+        function greetUser(user : User) {
+            if ("email" in user) {
+                console.log(`Hi I'm ${user.name} and my mail is ${user.email}`);
+            } else {
+                console.log(`Hi I'm ${user.name}`);
             }
         }
 
-        const obj = new OptionalJi("Shiv", "Shena");
+        greetUser({name : "Shivendra"})
+        greetUser({name : "shivendra" , email : "shivendrawk@gamil.com"})
+
         
+
 
 
 
