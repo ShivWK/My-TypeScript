@@ -398,26 +398,37 @@
 
     //Function overloading
 
-            type StringOrNumber = string | number;
+            // type StringOrNumber = string | number;
 
-            function addition(a : number , b : number) : number;
-            function addition(a : number , b : string) : string;
-            function addition(a : string , b : number) : string;
-            function addition(a : string , b : string) : string;
+            // function addition(a : number , b : number) : number;
+            // function addition(a : number , b : string) : string;
+            // function addition(a : string , b : number) : string;
+            // function addition(a : string , b : string) : string;
 
-            function addition(a : StringOrNumber, b : StringOrNumber) {
-                if (typeof a === "string" || typeof b === "string") {
-                    return a.toString() + b.toString();
-                } else {
-                    return a + b;
-                }
-            }
+            // function addition(a : StringOrNumber, b : StringOrNumber) {
+            //     if (typeof a === "string" || typeof b === "string") {
+            //         return a.toString() + b.toString();
+            //     } else {
+            //         return a + b;
+            //     }
+            // }
 
-            addition("Hello", "World").toUpperCase();
-            addition(10, 20);
+            // addition("Hello", "World").toUpperCase();
+            // addition(10, 20);
 
 
-        
+    //Generics
+
+        function swap<T>(arr : T[], index1 : number , index2 : number) : T[] {
+
+            //Code to swap the elements
+            return [];
+        }
+
+        swap(["Hello", "World"], 1, 2).map((data : string) => (
+            data.toLowerCase()
+        ));
+
 
 
 
