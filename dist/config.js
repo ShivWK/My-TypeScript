@@ -1,10 +1,9 @@
-function greetUser(user) {
-    if ("email" in user) {
-        console.log(`Hi I'm ${user.name} and my mail is ${user.email}`);
-    }
-    else {
-        console.log(`Hi I'm ${user.name}`);
-    }
+function* generatorFn(i) {
+    console.log("A");
+    yield i;
+    console.log("B");
+    yield 2;
 }
-greetUser({ name: "Shivendra" });
-greetUser({ name: "shivendra", email: "shivendrawk@gamil.com" });
+const gen = generatorFn(5);
+console.log(gen.next());
+console.log(gen.next());

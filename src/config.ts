@@ -354,31 +354,68 @@
 
     //In operator
 
-        const Obj = {
-            prop1 : "Shivendra",
-            prop2 : undefined,
-        }
+        // const Obj = {
+        //     prop1 : "Shivendra",
+        //     prop2 : undefined,
+        // }
 
-        console.log('prop1' in Obj);
-        console.log('toString' in Obj);
+        // console.log('prop1' in Obj);
+        // console.log('toString' in Obj);
 
     //Type checkingh with interfaces
 
-        type User = {
-            name : string,
-            email ?: string,
-        }
+        // type User = {
+        //     name : string,
+        //     email ?: string,
+        // }
 
-        function greetUser(user : User) {
-            if ("email" in user) {
-                console.log(`Hi I'm ${user.name} and my mail is ${user.email}`);
-            } else {
-                console.log(`Hi I'm ${user.name}`);
+        // function greetUser(user : User) {
+        //     if ("email" in user) {
+        //         console.log(`Hi I'm ${user.name} and my mail is ${user.email}`);
+        //     } else {
+        //         console.log(`Hi I'm ${user.name}`);
+        //     }
+        // }
+
+        // greetUser({name : "Shivendra"})
+        // greetUser({name : "shivendra" , email : "shivendrawk@gamil.com"})
+
+    //Generator function example
+
+        // function* generatorFn(i) {
+        //         console.log("A");
+        //         yield i;
+        //         console.log("B");
+        //         yield 2;
+        //         // return 3;
+        //     }
+
+        //     const gen = generatorFn(5);
+
+        //     // console.log(gen);
+        //     console.log(gen.next());
+        //     console.log(gen.next());
+
+    //Function overloading
+
+            type StringOrNumber = string | number;
+
+            function addition(a : number , b : number) : number;
+            function addition(a : number , b : string) : string;
+            function addition(a : string , b : number) : string;
+            function addition(a : string , b : string) : string;
+
+            function addition(a : StringOrNumber, b : StringOrNumber) {
+                if (typeof a === "string" || typeof b === "string") {
+                    return a.toString() + b.toString();
+                } else {
+                    return a + b;
+                }
             }
-        }
 
-        greetUser({name : "Shivendra"})
-        greetUser({name : "shivendra" , email : "shivendrawk@gamil.com"})
+            addition("Hello", "World").toUpperCase();
+            addition(10, 20);
+
 
         
 
