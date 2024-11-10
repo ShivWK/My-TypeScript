@@ -352,31 +352,31 @@
 
 //Intersection types
 
-    type StringOrNumber = string | Number;
-    type BooleanOrNumber = boolean | number;
+    // type StringOrNumber = string | Number;
+    // type BooleanOrNumber = boolean | number;
 
-    type myType = StringOrNumber & BooleanOrNumber;
+    // type myType = StringOrNumber & BooleanOrNumber;
 
-    var value : myType = 25;
-    value = 15;
+    // var value : myType = 25;
+    // value = 15;
 
-    type user = {
-        name : string;
-        age : number;
-    }
+    // type user = {
+    //     name : string;
+    //     age : number;
+    // }
 
-    type admin = {
-        name : string;
-        roll : string;
-    }
+    // type admin = {
+    //     name : string;
+    //     roll : string;
+    // }
 
-    type custom = user & admin;
+    // type custom = user & admin;
 
-    let myUser : custom =  {
-        name : "shivendra",
-        age : 24,
-        roll : "Frontend engineer",
-    }
+    // let myUser : custom =  {
+    //     name : "shivendra",
+    //     age : 24,
+    //     roll : "Frontend engineer",
+    // }
 
 //Type guarding
 
@@ -407,6 +407,34 @@
 
         // greetUser({name : "Shivendra"})
         // greetUser({name : "shivendra" , email : "shivendrawk@gamil.com"})
+
+//Discrimenated Unions
+
+    interface square {
+        type : "square";
+        side : number;
+    }
+
+    interface circle {
+        type : 'circle';
+        radius : number; 
+    }
+
+    type shape = square | circle;
+    function calcArea(argu : shape) {
+        switch (argu.type) {
+            case "square" : {
+                return argu.side * argu.side;
+            }
+
+            case 'circle' : {
+                return 3.14 * argu.radius * argu.radius;
+            }
+        }
+    }
+
+    console.log(calcArea({type : 'circle', radius : 5}));
+    console.log(calcArea({type : "square" , side : 10}));
 
     //Generator function example
 

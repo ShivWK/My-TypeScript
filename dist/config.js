@@ -1,5 +1,12 @@
-function expand(obj1, obj2) {
-    return Object.assign(obj1, obj2);
+function calcArea(argu) {
+    switch (argu.type) {
+        case "square": {
+            return argu.side * argu.side;
+        }
+        case 'circle': {
+            return 3.14 * argu.radius * argu.radius;
+        }
+    }
 }
-let combined = expand({ name: "shiv", age: 25 }, { name: "John", gender: "male" });
-console.log(combined.name);
+console.log(calcArea({ type: 'circle', radius: 5 }));
+console.log(calcArea({ type: "square", side: 10 }));
