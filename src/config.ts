@@ -410,49 +410,44 @@
 
 //Discrimenated Unions
 
-    interface square {
-        type : "square";
-        side : number;
-    }
+    // interface square {
+    //     type : "square";
+    //     side : number;
+    // }
 
-    interface circle {
-        type : 'circle';
-        radius : number; 
-    }
+    // interface circle {
+    //     type : 'circle';
+    //     radius : number; 
+    // }
 
-    type shape = square | circle;
-    function calcArea(argu : shape) {
-        switch (argu.type) {
-            case "square" : {
-                return argu.side * argu.side;
-            }
+    // type shape = square | circle;
+    // function calcArea(argu : shape) {
+    //     switch (argu.type) {
+    //         case "square" : {
+    //             return argu.side * argu.side;
+    //         }
 
-            case 'circle' : {
-                return 3.14 * argu.radius * argu.radius;
-            }
-        }
-    }
+    //         case 'circle' : {
+    //             return 3.14 * argu.radius * argu.radius;
+    //         }
+    //     }
+    // }
 
-    console.log(calcArea({type : 'circle', radius : 5}));
-    console.log(calcArea({type : "square" , side : 10}));
+    // console.log(calcArea({type : 'circle', radius : 5}));
+    // console.log(calcArea({type : "square" , side : 10}));
 
-    //Generator function example
+//Type casting 
 
-        // function* generatorFn(i) {
-        //         console.log("A");
-        //         yield i;
-        //         console.log("B");
-        //         yield 2;
-        //         // return 3;
-        //     }
+    let btn = document.querySelector("#input");
+    console.log(btn.value);
 
-        //     const gen = generatorFn(5);
+    let btn2 = <HTMLInputElement>document.querySelector("#input");
+    console.log(btn2.value);
 
-        //     // console.log(gen);
-        //     console.log(gen.next());
-        //     console.log(gen.next());
+    let btn3 = document.querySelector("#input") as HTMLInputElement;
+    console.log(btn3.value);
 
-    //Function overloading
+//Function overloading
 
             // type StringOrNumber = string | number;
 
@@ -473,7 +468,7 @@
             // addition(10, 20);
 
 
-    //Generics
+//Generics
 
         // function swap<T>(arr : T[], index1 : number , index2 : number) : T[] {
 
