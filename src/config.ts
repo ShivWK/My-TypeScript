@@ -449,28 +449,28 @@
 
 //Index Propeeties
 
-    interface User {
-        name : string,
-        [prop : string] : string | number;
-    }
+    // interface User {
+    //     name : string,
+    //     [prop : string] : string | number;
+    // }
 
-    let employee : User = {
-        name : "Shivendra",
-        Class : "BCA graduate",
-        Roll : "Frontend Engineer | Software engineer",
-        address : "Utter Pradesh",
-    }
+    // let employee : User = {
+    //     name : "Shivendra",
+    //     Class : "BCA graduate",
+    //     Roll : "Frontend Engineer | Software engineer",
+    //     address : "Utter Pradesh",
+    // }
 
-    interface User2  {
-        [prop : string] : string | number;
-    }
+    // interface User2  {
+    //     [prop : string] : string | number;
+    // }
 
-    let Admin : User2  = {
-        Roll : "CEO",
-        age : 28,
-        name : "shivendra",
-        COmpanyType : "E-commerce"
-    }
+    // let Admin : User2  = {
+    //     Roll : "CEO",
+    //     age : 28,
+    //     name : "shivendra",
+    //     COmpanyType : "E-commerce"
+    // }
 
 //Function overloading
 
@@ -507,14 +507,33 @@
 
     //Generic functions with constraints
 
-        // function expand<T, U>(obj1 : T, obj2 : U) {
-        //     return Object.assign(obj1, obj2);
-        // }
+        function expand<T, U>(obj1 : T, obj2 : U) {
+            return Object.assign(obj1, obj2);
+        }
 
-        // let combined = expand({name : "shiv" , age : 25}, {name : "John" , gender : "male"})
-        // console.log(combined.name);
+        let combined = expand({name : "shiv" , age : 25}, {name : "John" , gender : "male"})
+        console.log(combined.name);
 
-        
+        interface User {
+            name : string;
+            age : number;
+        }
 
+        function display<T extends User>(obj : T) {
+            return obj.name;
+        }
 
+        display({name : "shivendra" , age : 24});
+        display({name : "Priya" , age : 29 , address : "gurugram"});
+        display({roll : "engineer" , age : 26});
+
+    //keyof
+
+        function display2<T extends User, U extends string>(obj : T, key : U) {
+            return obj[key];
+        }
+
+        function display3<T extends User, U extends keyof T>(obj : T, key : U) {
+            return obj[key];
+        }
         
