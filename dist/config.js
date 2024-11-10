@@ -1,9 +1,5 @@
-function* generatorFn(i) {
-    console.log("A");
-    yield i;
-    console.log("B");
-    yield 2;
+function expand(obj1, obj2) {
+    return Object.assign(obj1, obj2);
 }
-const gen = generatorFn(5);
-console.log(gen.next());
-console.log(gen.next());
+let combined = expand({ name: "shiv", age: 25 }, { name: "John", gender: "male" });
+console.log(combined.name);

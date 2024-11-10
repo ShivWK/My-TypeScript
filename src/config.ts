@@ -349,7 +349,35 @@
         // }
 
         // const obj = new OptionalJi("Shiv", "Shena");
-        
+
+//Intersection types
+
+    type StringOrNumber = string | Number;
+    type BooleanOrNumber = boolean | number;
+
+    type myType = StringOrNumber & BooleanOrNumber;
+
+    var value : myType = 25;
+    value = 15;
+
+    type user = {
+        name : string;
+        age : number;
+    }
+
+    type admin = {
+        name : string;
+        roll : string;
+    }
+
+    type custom = user & admin;
+
+    let myUser : custom =  {
+        name : "shivendra",
+        age : 24,
+        roll : "Frontend engineer",
+    }
+
 //Type guarding
 
     //In operator
@@ -419,18 +447,26 @@
 
     //Generics
 
-        function swap<T>(arr : T[], index1 : number , index2 : number) : T[] {
+        // function swap<T>(arr : T[], index1 : number , index2 : number) : T[] {
 
-            //Code to swap the elements
-            return [];
-        }
+        //     //Code to swap the elements
+        //     return [];
+        // }
 
-        swap(["Hello", "World"], 1, 2).map((data : string) => (
-            data.toLowerCase()
-        ));
+        // swap(["Hello", "World"], 1, 2).map((data : string) => (
+        //     data.toLowerCase()
+        // ));
 
+    //Generic functions with constraints
 
+        // function expand<T, U>(obj1 : T, obj2 : U) {
+        //     return Object.assign(obj1, obj2);
+        // }
 
+        // let combined = expand({name : "shiv" , age : 25}, {name : "John" , gender : "male"})
+        // console.log(combined.name);
+
+        
 
 
         
