@@ -438,14 +438,39 @@
 
 //Type casting 
 
-    let btn = document.querySelector("#input");
-    console.log(btn.value);
+    // let btn = document.querySelector("#input");
+    // console.log(btn.value);
 
-    let btn2 = <HTMLInputElement>document.querySelector("#input");
-    console.log(btn2.value);
+    // let btn2 = <HTMLInputElement>document.querySelector("#input");
+    // console.log(btn2.value);
 
-    let btn3 = document.querySelector("#input") as HTMLInputElement;
-    console.log(btn3.value);
+    // let btn3 = document.querySelector("#input") as HTMLInputElement;
+    // console.log(btn3.value);
+
+//Index Propeeties
+
+    interface User {
+        name : string,
+        [prop : string] : string | number;
+    }
+
+    let employee : User = {
+        name : "Shivendra",
+        Class : "BCA graduate",
+        Roll : "Frontend Engineer | Software engineer",
+        address : "Utter Pradesh",
+    }
+
+    interface User2  {
+        [prop : string] : string | number;
+    }
+
+    let Admin : User2  = {
+        Roll : "CEO",
+        age : 28,
+        name : "shivendra",
+        COmpanyType : "E-commerce"
+    }
 
 //Function overloading
 
