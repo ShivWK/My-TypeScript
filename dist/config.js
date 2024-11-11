@@ -1,19 +1,17 @@
-class GenericClass {
-    constructor() {
-        this.Items = [];
-    }
-    addItems(item) {
-        this.Items.push(item);
-    }
-    getItems() {
-        return this.Items;
-    }
+const user = {
+    username: "Shivendra",
+    email: "shivendrawk@gmail.com",
+    darkMode: "light",
+    language: "English / Hindi",
+};
+const newSetting = {
+    darkMode: true,
+    language: "Hindi",
+};
+function updateUserSetting1(partialSetting) {
+    console.log(`Updating : ${partialSetting}`);
 }
-let obj1 = new GenericClass();
-obj1.addItems({ name: "shivendra", roll: "software Engineer" });
-console.log(obj1.getItems());
-let obj2 = new GenericClass();
-obj2.addItems({ name: "Lavi", age: 28, gender: "female" });
-let obj3 = new GenericClass();
-obj3.addItems("Shivendra");
-console.log(obj3.getItems());
+function updateUserSetting2(partialSetting) {
+    console.log(`Updating : ${partialSetting.darkMode}`);
+}
+updateUserSetting2(user);

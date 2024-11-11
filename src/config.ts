@@ -539,41 +539,73 @@
         
     //Creating a generic class
 
-        type User = {
-            name : string;
-            roll : string;
+        // type User = {
+        //     name : string;
+        //     roll : string;
+        // }
+
+        // type Emp = {
+        //     name : string;
+        //     age : number;
+        //     gender : string;
+        // }
+
+        // class GenericClass<T> {
+        //     private Items : T[] = [];
+
+        //     addItems(item : T) {
+        //         this.Items.push(item);
+        //     }
+
+        //     getItems() {
+        //         return this.Items;
+        //     }
+        // }
+
+        // let obj1 = new GenericClass<User>();
+        // obj1.addItems({name : "shivendra", roll : "software Engineer"});
+        // obj1.addItems({name : "Ritik", age : 25});
+        // console.log(obj1.getItems());
+
+        // let obj2 = new GenericClass<Emp>();
+        // obj2.addItems({name : "Lavi" , age : 28, gender : "female"});
+        // obj2.addItems({name : "Sahil" , age : 24, gender : "male", address : "Naini"});
+
+        // let obj3 = new GenericClass<string>();
+        // obj3.addItems("Shivendra");
+        // console.log(obj3.getItems());
+
+    //Partial and Readonly generics
+
+        interface UserSetting {
+            username : string;
+            email : string;
+            darkMode : string;
+            language : string;
         }
 
-        type Emp = {
-            name : string;
-            age : number;
-            gender : string;
+        const user : UserSetting = {
+            username : "Shivendra",
+            email : "shivendrawk@gmail.com",
+            darkMode : "light",
+            language : "English / Hindi",
         }
 
-        class GenericClass<T> {
-            private Items : T[] = [];
-
-            addItems(item : T) {
-                this.Items.push(item);
-            }
-
-            getItems() {
-                return this.Items;
-            }
+        const newSetting = {
+            darkMode : true,
+            language : "Hindi",
         }
 
-        let obj1 = new GenericClass<User>();
-        obj1.addItems({name : "shivendra", roll : "software Engineer"});
-        obj1.addItems({name : "Ritik", age : 25});
-        console.log(obj1.getItems());
+        function updateUserSetting1(partialSetting : UserSetting) {
+            console.log(`Updating : ${partialSetting}`);
+        }
 
-        let obj2 = new GenericClass<Emp>();
-        obj2.addItems({name : "Lavi" , age : 28, gender : "female"});
-        obj2.addItems({name : "Sahil" , age : 24, gender : "male", address : "Naini"});
+        function updateUserSetting2(partialSetting : Partial<UserSetting>) {
+            console.log(`Updating : ${partialSetting.darkMode}`);
+        }
 
-        let obj3 = new GenericClass<string>();
-        obj3.addItems("Shivendra");
-        console.log(obj3.getItems());
+        // updateUserSetting1(newSetting);
+        updateUserSetting2(user);
         
 
 
