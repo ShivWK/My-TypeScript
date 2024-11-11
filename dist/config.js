@@ -1,12 +1,19 @@
-function calcArea(argu) {
-    switch (argu.type) {
-        case "square": {
-            return argu.side * argu.side;
-        }
-        case 'circle': {
-            return 3.14 * argu.radius * argu.radius;
-        }
+class GenericClass {
+    constructor() {
+        this.Items = [];
+    }
+    addItems(item) {
+        this.Items.push(item);
+    }
+    getItems() {
+        return this.Items;
     }
 }
-console.log(calcArea({ type: 'circle', radius: 5 }));
-console.log(calcArea({ type: "square", side: 10 }));
+let obj1 = new GenericClass();
+obj1.addItems({ name: "shivendra", roll: "software Engineer" });
+console.log(obj1.getItems());
+let obj2 = new GenericClass();
+obj2.addItems({ name: "Lavi", age: 28, gender: "female" });
+let obj3 = new GenericClass();
+obj3.addItems("Shivendra");
+console.log(obj3.getItems());

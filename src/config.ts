@@ -507,33 +507,73 @@
 
     //Generic functions with constraints
 
-        function expand<T, U>(obj1 : T, obj2 : U) {
-            return Object.assign(obj1, obj2);
-        }
+        // function expand<T, U>(obj1 : T, obj2 : U) {
+        //     return Object.assign(obj1, obj2);
+        // }
 
-        let combined = expand({name : "shiv" , age : 25}, {name : "John" , gender : "male"})
-        console.log(combined.name);
+        // let combined = expand({name : "shiv" , age : 25}, {name : "John" , gender : "male"})
+        // console.log(combined.name);
 
-        interface User {
-            name : string;
-            age : number;
-        }
+        // interface User {
+        //     name : string;
+        //     age : number;
+        // }
 
-        function display<T extends User>(obj : T) {
-            return obj.name;
-        }
+        // function display<T extends User>(obj : T) {
+        //     return obj.name;
+        // }
 
-        display({name : "shivendra" , age : 24});
-        display({name : "Priya" , age : 29 , address : "gurugram"});
-        display({roll : "engineer" , age : 26});
+        // display({name : "shivendra" , age : 24});
+        // display({name : "Priya" , age : 29 , address : "gurugram"});
+        // display({roll : "engineer" , age : 26});
 
     //keyof
 
-        function display2<T extends User, U extends string>(obj : T, key : U) {
-            return obj[key];
+        // function display2<T extends User, U extends string>(obj : T, key : U) {
+        //     return obj[key];
+        // }
+
+        // function display3<T extends User, U extends keyof T>(obj : T, key : U) {
+        //     return obj[key];
+        // }
+        
+    //Creating a generic class
+
+        type User = {
+            name : string;
+            roll : string;
         }
 
-        function display3<T extends User, U extends keyof T>(obj : T, key : U) {
-            return obj[key];
+        type Emp = {
+            name : string;
+            age : number;
+            gender : string;
         }
+
+        class GenericClass<T> {
+            private Items : T[] = [];
+
+            addItems(item : T) {
+                this.Items.push(item);
+            }
+
+            getItems() {
+                return this.Items;
+            }
+        }
+
+        let obj1 = new GenericClass<User>();
+        obj1.addItems({name : "shivendra", roll : "software Engineer"});
+        obj1.addItems({name : "Ritik", age : 25});
+        console.log(obj1.getItems());
+
+        let obj2 = new GenericClass<Emp>();
+        obj2.addItems({name : "Lavi" , age : 28, gender : "female"});
+        obj2.addItems({name : "Sahil" , age : 24, gender : "male", address : "Naini"});
+
+        let obj3 = new GenericClass<string>();
+        obj3.addItems("Shivendra");
+        console.log(obj3.getItems());
         
+
+
