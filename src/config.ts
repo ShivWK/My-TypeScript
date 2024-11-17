@@ -728,22 +728,51 @@
 
     //Property Decorator
 
-        function Captilize (target : any, propName : string) {
-            console.log("Capitilize decorator");
-            console.log(propName);
+        // function Captilize (target : any, propName : string) {
+        //     console.log("Capitilize decorator");
+        //     console.log(propName);
+        //     console.log(target);
+        // }
+
+        // class Product1 {
+        //     @Captilize
+        //     static name2 : string;
+        //     price : number;
+
+        //     constructor(name : string, price : number) {
+        //         Product1.name2 = name;
+        //         this.price = price;
+        //     }
+        // }
+
+    //Accesssor Decorator
+
+        function AccessorLogger(target : any, name : string, descriptor : PropertyDescriptor) : void {
             console.log(target);
+            console.log(name);
+            console.log(descriptor);
         }
 
-        class Product1 {
-            @Captilize
-            name : string;
-            price : number;
+        class Product2 {
+            name : string = "shivendra";
+            private static _price : number = 100;
 
-            constructor(name : string, price : number) {
-                this.name = name;
-                this.price = price;
+            @AccessorLogger
+            set price(val : number) {
+                Product2._price = val;
             }
+
+            get price() {
+                return Product2._price;
+            }
+
+            constructor() {
+                console.log(this.name, " ", Product2._price);
+            }
+
         }
+        const obj = new Product2();
+
 
 
     

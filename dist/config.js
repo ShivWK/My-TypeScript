@@ -11,10 +11,10 @@ function Captilize(target, propName) {
 }
 class Product1 {
     constructor(name, price) {
-        this.name = name;
+        Product1.name2 = name;
         this.price = price;
     }
 }
 __decorate([
     Captilize
-], Product1.prototype, "name", void 0);
+], Product1, "name2", void 0);
