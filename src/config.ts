@@ -577,35 +577,55 @@
 
     //Partial and Readonly generics
 
-        interface UserSetting {
-            username : string;
-            email : string;
-            darkMode : string;
-            language : string;
-        }
+        // interface UserSetting {
+        //     username : string;
+        //     email : string;
+        //     darkMode : string;
+        //     language : string;
+        // }
 
-        const user : UserSetting = {
-            username : "Shivendra",
-            email : "shivendrawk@gmail.com",
-            darkMode : "light",
-            language : "English / Hindi",
-        }
+        // const user : UserSetting = {
+        //     username : "Shivendra",
+        //     email : "shivendrawk@gmail.com",
+        //     darkMode : "light",
+        //     language : "English / Hindi",
+        // }
 
-        const newSetting = {
-            darkMode : true,
-            language : "Hindi",
-        }
+        // const newSetting = {
+        //     darkMode : true,
+        //     language : "Hindi",
+        // }
 
-        function updateUserSetting1(partialSetting : UserSetting) {
-            console.log(`Updating : ${partialSetting}`);
-        }
+        // function updateUserSetting1(partialSetting : UserSetting) {
+        //     console.log(`Updating : ${partialSetting}`);
+        // }
 
-        function updateUserSetting2(partialSetting : Partial<UserSetting>) {
-            console.log(`Updating : ${partialSetting.darkMode}`);
-        }
+        // function updateUserSetting2(partialSetting : Partial<UserSetting>) {
+        //     console.log(`Updating : ${partialSetting.darkMode}`);
+        // }
 
-        // updateUserSetting1(newSetting);
-        updateUserSetting2(user);
+        // // updateUserSetting1(newSetting);
+        // updateUserSetting2(user);
         
+        // let arr : Readonly<string[]> = ["john" , "mark"];
+        // arr.push("ddddd");
 
+    //class Decorters
+
+    function Logger(target : Function) {
+        console.log("Logging...");
+    }
+
+    @Logger
+    class First {
+        name : string = 'John';
+        age : number = 25;
+
+        constructor() {
+            console.log("First class constructor called...");
+        }
+    }
+
+     //Optinal
+    const obj = new First();
 
