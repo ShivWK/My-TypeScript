@@ -37,22 +37,29 @@ var __setFunctionName = (this && this.__setFunctionName) || function (f, name, p
     return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
 };
 function Template(template, elementId) {
+    console.log("Template Factory function");
     return function (target) {
         const obj = new target();
         const container = document.getElementById(elementId);
+        console.log("Template decoraters");
         if (container) {
             container.innerHTML = template;
-            console.log("container found");
             const h1 = container.querySelector("h1");
             if (h1) {
-                console.log("h1 found");
                 h1.innerText = "Hello it's me";
             }
         }
     };
 }
+function LoggerDecorator(logMsg) {
+    console.log("LoggerDecorater factory function");
+    function Logger(target) {
+        console.log("Logging with message ", logMsg);
+    }
+    return Logger;
+}
 let User = (() => {
-    let _classDecorators = [Template("<p>Hi I'm paragraph element from container</p><h1></h1>", "divBox")];
+    let _classDecorators = [Template("<p>Hi I'm paragraph element from container</p><h1></h1>", "divBox"), LoggerDecorator("Hi I'm Logrer decorater")];
     let _classDescriptor;
     let _classExtraInitializers = [];
     let _classThis;

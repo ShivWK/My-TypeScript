@@ -655,25 +655,68 @@
 
     //Practicle use of decorater factory fucntion
 
+    // function Template(template : string, elementId : string) {
+    //     return function (target : new () => {}) {
+    //         const obj = new target();
+    //         const container = document.getElementById(elementId);
+
+    //         if (container) {
+    //             container.innerHTML = template;
+    //             console.log("container found")
+    //             const h1 = container.querySelector("h1");
+
+    //             if (h1) {
+    //                 console.log("h1 found")
+    //                 h1.innerText = "Hello it's me";
+    //             }
+    //         }
+    //     } 
+    // }
+
+    // @Template("<p>Hi I'm paragraph element from container</p><h1></h1>", "divBox")
+    // class User {
+    //     name : string = "Shivendra";
+    //     age : number = 25;
+
+    //     constructor() {
+    //         console.log("hi I'm ", this.name, ". I'm ",this.age, " years old");
+    //     }
+    // }
+
+    //Multiple decorators
+
     function Template(template : string, elementId : string) {
+        console.log("Template Factory function");
+
         return function (target : new () => {}) {
             const obj = new target();
             const container = document.getElementById(elementId);
+            console.log("Template decoraters");
 
             if (container) {
                 container.innerHTML = template;
-                console.log("container found")
                 const h1 = container.querySelector("h1");
 
                 if (h1) {
-                    console.log("h1 found")
                     h1.innerText = "Hello it's me";
                 }
             }
         } 
     }
 
+    
+    function LoggerDecorator(logMsg : string) {
+        console.log("LoggerDecorater factory function");
+        
+        function Logger(target : Function) {
+            console.log("Logging with message ", logMsg);
+        }
+        
+        return Logger;
+    }
+
     @Template("<p>Hi I'm paragraph element from container</p><h1></h1>", "divBox")
+    @LoggerDecorator("Hi I'm Logrer decorater")
     class User {
         name : string = "Shivendra";
         age : number = 25;
@@ -682,4 +725,5 @@
             console.log("hi I'm ", this.name, ". I'm ",this.age, " years old");
         }
     }
+
 
