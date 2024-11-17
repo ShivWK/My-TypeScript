@@ -747,31 +747,79 @@
 
     //Accesssor Decorator
 
+        // function AccessorLogger(target : any, name : string, descriptor : PropertyDescriptor) : void {
+        //     console.log(target);
+        //     console.log(name);
+        //     console.log(descriptor);
+        // }
+
+        // class Product2 {
+        //     name : string = "shivendra";
+        //     private static _price : number = 100;
+
+        //     @AccessorLogger
+        //     set price(val : number) {
+        //         Product2._price = val;
+        //     }
+
+        //     get price() {
+        //         return Product2._price;
+        //     }
+
+        //     constructor() {
+        //         console.log(this.name, " ", Product2._price);
+        //     }
+
+        // }
+        // const obj = new Product2();
+
+        //Practiclr use 
+
         function AccessorLogger(target : any, name : string, descriptor : PropertyDescriptor) : void {
-            console.log(target);
-            console.log(name);
-            console.log(descriptor);
-        }
+                const getter = descriptor.get;
+                const setter = descriptor.set;
 
-        class Product2 {
-            name : string = "shivendra";
-            private static _price : number = 100;
+                descriptor.get = function() {
+                    console.log("Accessing the Property ", name);
 
-            @AccessorLogger
-            set price(val : number) {
-                Product2._price = val;
+                    if (getter) {
+                        getter.call(this);
+                    }
+                }
+
+                descriptor.set = function() {
+                    console.log("setting the property ", name);
+
+                    if (setter) {
+                        setter.call(this);
+                    }
+                }
             }
-
-            get price() {
-                return Product2._price;
+    
+            class Product2 {
+                name : string;
+                private _price : number = 100;
+    
+                @AccessorLogger
+                set price(val : number) {
+                    this._price = val;
+                }
+    
+                get price() {
+                    return this._price;
+                }
+    
+                constructor(name : string) {
+                    
+                    this.name = name;
+                    console.log(this.name, " ", this._price);
+                }
+    
             }
+            const obj = new Product2("Shivendra obj");
+            obj.price;
+            obj.price = 45;
 
-            constructor() {
-                console.log(this.name, " ", Product2._price);
-            }
-
-        }
-        const obj = new Product2();
 
 
 
