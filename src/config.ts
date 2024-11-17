@@ -775,50 +775,72 @@
 
         //Practiclr use 
 
-        function AccessorLogger(target : any, name : string, descriptor : PropertyDescriptor) : void {
-                const getter = descriptor.get;
-                const setter = descriptor.set;
+        // function AccessorLogger(target : any, name : string, descriptor : PropertyDescriptor) : void {
+        //         const getter = descriptor.get;
+        //         const setter = descriptor.set;
 
-                descriptor.get = function() {
-                    console.log("Accessing the Property ", name);
+        //         descriptor.get = function() {
+        //             console.log("Accessing the Property ", name);
 
-                    if (getter) {
-                        getter.call(this);
-                    }
-                }
+        //             if (getter) {
+        //                 getter.call(this);
+        //             }
+        //         }
 
-                descriptor.set = function() {
-                    console.log("setting the property ", name);
+        //         descriptor.set = function() {
+        //             console.log("setting the property ", name);
 
-                    if (setter) {
-                        setter.call(this);
-                    }
-                }
-            }
+        //             if (setter) {
+        //                 setter.call(this);
+        //             }
+        //         }
+        //     }
     
-            class Product2 {
-                name : string;
-                private _price : number = 100;
+        //     class Product2 {
+        //         name : string;
+        //         private _price : number = 100;
     
-                @AccessorLogger
-                set price(val : number) {
-                    this._price = val;
-                }
+        //         @AccessorLogger
+        //         set price(val : number) {
+        //             this._price = val;
+        //         }
     
-                get price() {
-                    return this._price;
-                }
+        //         get price() {
+        //             return this._price;
+        //         }
     
-                constructor(name : string) {
+        //         constructor(name : string) {
                     
-                    this.name = name;
-                    console.log(this.name, " ", this._price);
-                }
+        //             this.name = name;
+        //             console.log(this.name, " ", this._price);
+        //         }
     
-            }
-            const obj = new Product2("Shivendra obj");
-            obj.price;
-            obj.price = 45;
+        //     }
+        //     const obj = new Product2("Shivendra obj");
+        //     obj.price;
+        //     obj.price = 45;
+
+    //Method Decorator
+    
+        function Logger(target : any, methodName : string, descriptor : PropertyDescriptor) {
+            console.log(target); //prototype object
+            console.log(methodName);
+            console.log(descriptor);
+        }
+
+        class Person {
+           private _name : string = "shivendra";
+           public age : number =  25;
+
+           @Logger
+           show() {
+            return this._name;
+           }
+        }
+
+        const object = new Person();
+        console.log(object.show());
+
 
 
 
