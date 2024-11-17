@@ -614,116 +614,138 @@
 
     //class Decorters
 
-    // function Logger(target : Function) {
-    //     console.log("Logging...");
-    //     console.log(target);
-    // }
+        // function Logger(target : Function) {
+        //     console.log("Logging...");
+        //     console.log(target);
+        // }
 
-    // @Logger
-    // class First {
-    //     name : string = 'John';
-    //     age : number = 25;
+        // @Logger
+        // class First {
+        //     name : string = 'John';
+        //     age : number = 25;
 
-    //     constructor() {
-    //         console.log("First class constructor called...");
-    //     }
-    // }
+        //     constructor() {
+        //         console.log("First class constructor called...");
+        //     }
+        // }
 
-    //  //Optinal
-    // const obj = new First();
+        //  //Optinal
+        // const obj = new First();
 
     //Decorator factory function
 
-    // function LoggerDecorator(logMsg : string) {
-        
-    //     function Logger(target : Function) {
-    //         console.log("Logging with messge ", logMsg);
-    //     }
-        
-    //     return Logger;
-    // }
+        // function LoggerDecorator(logMsg : string) {
+            
+        //     function Logger(target : Function) {
+        //         console.log("Logging with messge ", logMsg);
+        //     }
+            
+        //     return Logger;
+        // }
 
-    // @LoggerDecorator("Hi I'm a class decorater")
-    // class Second {
-    //     name : string = "Shivendra";
-    //     age : 25;
+        // @LoggerDecorator("Hi I'm a class decorater")
+        // class Second {
+        //     name : string = "Shivendra";
+        //     age : 25;
 
-    //     constructor() {
-    //         console.log("From class ", this.name, " ", this.age);
-    //     }
-    // }
+        //     constructor() {
+        //         console.log("From class ", this.name, " ", this.age);
+        //     }
+        // }
 
     //Practicle use of decorater factory fucntion
 
-    // function Template(template : string, elementId : string) {
-    //     return function (target : new () => {}) {
-    //         const obj = new target();
-    //         const container = document.getElementById(elementId);
+        // function Template(template : string, elementId : string) {
+        //     return function (target : new () => {}) {
+        //         const obj = new target();
+        //         const container = document.getElementById(elementId);
 
-    //         if (container) {
-    //             container.innerHTML = template;
-    //             console.log("container found")
-    //             const h1 = container.querySelector("h1");
+        //         if (container) {
+        //             container.innerHTML = template;
+        //             console.log("container found")
+        //             const h1 = container.querySelector("h1");
 
-    //             if (h1) {
-    //                 console.log("h1 found")
-    //                 h1.innerText = "Hello it's me";
-    //             }
-    //         }
-    //     } 
-    // }
+        //             if (h1) {
+        //                 console.log("h1 found")
+        //                 h1.innerText = "Hello it's me";
+        //             }
+        //         }
+        //     } 
+        // }
 
-    // @Template("<p>Hi I'm paragraph element from container</p><h1></h1>", "divBox")
-    // class User {
-    //     name : string = "Shivendra";
-    //     age : number = 25;
+        // @Template("<p>Hi I'm paragraph element from container</p><h1></h1>", "divBox")
+        // class User {
+        //     name : string = "Shivendra";
+        //     age : number = 25;
 
-    //     constructor() {
-    //         console.log("hi I'm ", this.name, ". I'm ",this.age, " years old");
-    //     }
-    // }
+        //     constructor() {
+        //         console.log("hi I'm ", this.name, ". I'm ",this.age, " years old");
+        //     }
+        // }
 
     //Multiple decorators
 
-    function Template(template : string, elementId : string) {
-        console.log("Template Factory function");
+        // function Template(template : string, elementId : string) {
+        //     console.log("Template Factory function");
 
-        return function (target : new () => {}) {
-            const obj = new target();
-            const container = document.getElementById(elementId);
-            console.log("Template decoraters");
+        //     return function (target : new () => {}) {
+        //         const obj = new target();
+        //         const container = document.getElementById(elementId);
+        //         console.log("Template decoraters");
 
-            if (container) {
-                container.innerHTML = template;
-                const h1 = container.querySelector("h1");
+        //         if (container) {
+        //             container.innerHTML = template;
+        //             const h1 = container.querySelector("h1");
 
-                if (h1) {
-                    h1.innerText = "Hello it's me";
-                }
+        //             if (h1) {
+        //                 h1.innerText = "Hello it's me";
+        //             }
+        //         }
+        //     } 
+        // }
+
+        
+        // function LoggerDecorator(logMsg : string) {
+        //     console.log("LoggerDecorater factory function");
+            
+        //     function Logger(target : Function) {
+        //         console.log("Logging with message ", logMsg);
+        //     }
+            
+        //     return Logger;
+        // }
+
+        // @Template("<p>Hi I'm paragraph element from container</p><h1></h1>", "divBox")
+        // @LoggerDecorator("Hi I'm Logrer decorater")
+        // class User {
+        //     name : string = "Shivendra";
+        //     age : number = 25;
+
+        //     constructor() {
+        //         console.log("hi I'm ", this.name, ". I'm ",this.age, " years old");
+        //     }
+        // }
+
+    //Property Decorator
+
+        function Captilize (target : any, propName : string) {
+            console.log("Capitilize decorator");
+            console.log(propName);
+            console.log(target);
+        }
+
+        class Product1 {
+            @Captilize
+            name : string;
+            price : number;
+
+            constructor(name : string, price : number) {
+                this.name = name;
+                this.price = price;
             }
-        } 
-    }
+        }
+
 
     
-    function LoggerDecorator(logMsg : string) {
-        console.log("LoggerDecorater factory function");
-        
-        function Logger(target : Function) {
-            console.log("Logging with message ", logMsg);
-        }
-        
-        return Logger;
-    }
-
-    @Template("<p>Hi I'm paragraph element from container</p><h1></h1>", "divBox")
-    @LoggerDecorator("Hi I'm Logrer decorater")
-    class User {
-        name : string = "Shivendra";
-        age : number = 25;
-
-        constructor() {
-            console.log("hi I'm ", this.name, ". I'm ",this.age, " years old");
-        }
-    }
 
 
