@@ -36,29 +36,30 @@ var __setFunctionName = (this && this.__setFunctionName) || function (f, name, p
     if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
     return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
 };
-function Logger(target) {
-    console.log("Logging...");
+function LoggerDecorator(logMsg) {
+    function Logger(target) {
+        console.log("Logging with messge ", logMsg);
+    }
+    return Logger;
 }
-let First = (() => {
-    let _classDecorators = [Logger];
+let Second = (() => {
+    let _classDecorators = [LoggerDecorator("Hi I'm a class decorater")];
     let _classDescriptor;
     let _classExtraInitializers = [];
     let _classThis;
-    var First = _classThis = class {
+    var Second = _classThis = class {
         constructor() {
-            this.name = 'John';
-            this.age = 25;
-            console.log("First class constructor called...");
+            this.name = "Shivendra";
+            console.log("From class ", this.name, " ", this.age);
         }
     };
-    __setFunctionName(_classThis, "First");
+    __setFunctionName(_classThis, "Second");
     (() => {
         const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(null) : void 0;
         __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
-        First = _classThis = _classDescriptor.value;
+        Second = _classThis = _classDescriptor.value;
         if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
         __runInitializers(_classThis, _classExtraInitializers);
     })();
-    return First = _classThis;
+    return Second = _classThis;
 })();
-const obj = new First();

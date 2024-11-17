@@ -610,22 +610,46 @@
         // let arr : Readonly<string[]> = ["john" , "mark"];
         // arr.push("ddddd");
 
+//Decorators
+
     //class Decorters
 
-    function Logger(target : Function) {
-        console.log("Logging...");
+    // function Logger(target : Function) {
+    //     console.log("Logging...");
+    //     console.log(target);
+    // }
+
+    // @Logger
+    // class First {
+    //     name : string = 'John';
+    //     age : number = 25;
+
+    //     constructor() {
+    //         console.log("First class constructor called...");
+    //     }
+    // }
+
+    //  //Optinal
+    // const obj = new First();
+
+    //Decorator factory function
+
+    function LoggerDecorator(logMsg : string) {
+        
+        function Logger(target : Function) {
+            console.log("Logging with messge ", logMsg);
+        }
+        
+        return Logger;
     }
 
-    @Logger
-    class First {
-        name : string = 'John';
-        age : number = 25;
+    @LoggerDecorator("Hi I'm a class decorater")
+    class Second {
+        name : string = "Shivendra";
+        age : 25;
 
         constructor() {
-            console.log("First class constructor called...");
+            console.log("From class ", this.name, " ", this.age);
         }
     }
-
-     //Optinal
-    const obj = new First();
 
