@@ -36,30 +36,40 @@ var __setFunctionName = (this && this.__setFunctionName) || function (f, name, p
     if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
     return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
 };
-function LoggerDecorator(logMsg) {
-    function Logger(target) {
-        console.log("Logging with messge ", logMsg);
-    }
-    return Logger;
+function Template(template, elementId) {
+    return function (target) {
+        const obj = new target();
+        const container = document.getElementById(elementId);
+        if (container) {
+            container.innerHTML = template;
+            console.log("container found");
+            const h1 = container.querySelector("h1");
+            if (h1) {
+                console.log("h1 found");
+                h1.innerText = "Hello it's me";
+            }
+        }
+    };
 }
-let Second = (() => {
-    let _classDecorators = [LoggerDecorator("Hi I'm a class decorater")];
+let User = (() => {
+    let _classDecorators = [Template("<p>Hi I'm paragraph element from container</p><h1></h1>", "divBox")];
     let _classDescriptor;
     let _classExtraInitializers = [];
     let _classThis;
-    var Second = _classThis = class {
+    var User = _classThis = class {
         constructor() {
             this.name = "Shivendra";
-            console.log("From class ", this.name, " ", this.age);
+            this.age = 25;
+            console.log("hi I'm ", this.name, ". I'm ", this.age, " years old");
         }
     };
-    __setFunctionName(_classThis, "Second");
+    __setFunctionName(_classThis, "User");
     (() => {
         const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(null) : void 0;
         __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
-        Second = _classThis = _classDescriptor.value;
+        User = _classThis = _classDescriptor.value;
         if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
         __runInitializers(_classThis, _classExtraInitializers);
     })();
-    return Second = _classThis;
+    return User = _classThis;
 })();

@@ -634,22 +634,52 @@
 
     //Decorator factory function
 
-    function LoggerDecorator(logMsg : string) {
+    // function LoggerDecorator(logMsg : string) {
         
-        function Logger(target : Function) {
-            console.log("Logging with messge ", logMsg);
-        }
+    //     function Logger(target : Function) {
+    //         console.log("Logging with messge ", logMsg);
+    //     }
         
-        return Logger;
+    //     return Logger;
+    // }
+
+    // @LoggerDecorator("Hi I'm a class decorater")
+    // class Second {
+    //     name : string = "Shivendra";
+    //     age : 25;
+
+    //     constructor() {
+    //         console.log("From class ", this.name, " ", this.age);
+    //     }
+    // }
+
+    //Practicle use of decorater factory fucntion
+
+    function Template(template : string, elementId : string) {
+        return function (target : new () => {}) {
+            const obj = new target();
+            const container = document.getElementById(elementId);
+
+            if (container) {
+                container.innerHTML = template;
+                console.log("container found")
+                const h1 = container.querySelector("h1");
+
+                if (h1) {
+                    console.log("h1 found")
+                    h1.innerText = "Hello it's me";
+                }
+            }
+        } 
     }
 
-    @LoggerDecorator("Hi I'm a class decorater")
-    class Second {
+    @Template("<p>Hi I'm paragraph element from container</p><h1></h1>", "divBox")
+    class User {
         name : string = "Shivendra";
-        age : 25;
+        age : number = 25;
 
         constructor() {
-            console.log("From class ", this.name, " ", this.age);
+            console.log("hi I'm ", this.name, ". I'm ",this.age, " years old");
         }
     }
 
