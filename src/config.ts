@@ -822,24 +822,53 @@
 
     //Method Decorator
     
-        function Logger(target : any, methodName : string, descriptor : PropertyDescriptor) {
-            console.log(target); //prototype object
+        // function Logger(target : any, methodName : string, descriptor : PropertyDescriptor) {
+        //     console.log(target); //prototype object
+        //     console.log(methodName);
+        //     console.log(descriptor);
+        // }
+
+        // class Person {
+        //    private _name : string = "shivendra";
+        //    public age : number =  25;
+
+        //    @Logger
+        //    show() {
+        //     return this._name;
+        //    }
+        // }
+
+        // const object = new Person();
+        // console.log(object.show());
+
+    //Parameter Decorator
+
+        function ParamLogger(target : any, methodName : string, index : number) {
+            console.log(target);
             console.log(methodName);
-            console.log(descriptor);
+            console.log(index);
         }
 
-        class Person {
-           private _name : string = "shivendra";
-           public age : number =  25;
+        class Param {
+            name : string;
+            age : number;
 
-           @Logger
-           show() {
-            return this._name;
-           }
+            constructor(name :string, age : number) {
+                this.name = name;
+                this.age = age;
+            }
+
+            show(@ParamLogger mine : string) {
+                console.log(mine, this.name);
+            }
+
         }
 
-        const object = new Person();
-        console.log(object.show());
+        const obj = new Param("shivendra", 25);
+        obj.show("Hi, I'm");
+
+
+
 
 
 
