@@ -843,31 +843,53 @@
 
     //Parameter Decorator
 
-        function ParamLogger(target : any, methodName : string, index : number) {
-            console.log(target);
-            console.log(methodName);
-            console.log(index);
+        // function ParamLogger(target : any, methodName : string, index : number) {
+        //     console.log(target);
+        //     console.log(methodName);
+        //     console.log(index);
+        // }
+
+        // class Param {
+        //     name : string;
+        //     age : number;
+
+        //     constructor(name :string, age : number) {
+        //         this.name = name;
+        //         this.age = age;
+        //     }
+
+        //     show(@ParamLogger mine : string) {
+        //         console.log(mine, this.name);
+        //     }
+
+        // }
+
+        // const obj = new Param("shivendra", 25);
+        // obj.show("Hi, I'm");
+
+    //Returning Class from a decorator
+
+        function Logger(target : new (...args : any[]) => {}) : any {
+            return class LoggerClass extends target {
+                constructor(...args : any[]) {
+                    super(...args);
+                    console.log("from Logger class");
+                    console.log(this);
+                }
+
+            } 
         }
 
-        class Param {
+        @Logger
+        class Mine {
             name : string;
-            age : number;
-
-            constructor(name :string, age : number) {
+            constructor(name : string) {
                 this.name = name;
-                this.age = age;
+                console.log("from Mine class");
             }
-
-            show(@ParamLogger mine : string) {
-                console.log(mine, this.name);
-            }
-
         }
 
-        const obj = new Param("shivendra", 25);
-        obj.show("Hi, I'm");
-
-
+        const obj = new Mine("Shivendra");
 
 
 
