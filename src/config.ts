@@ -869,32 +869,132 @@
 
     //Returning Class from a decorator
 
-        function Logger(target : new (...args : any[]) => {}) : any {
-            return class LoggerClass extends target {
-                constructor(...args : any[]) {
-                    super(...args);
-                    console.log("from Logger class");
-                    console.log(this);
-                }
+        // function Logger(target : new (...args : any[]) => {}) : any {
+        //     return class LoggerClass extends target {
+        //         constructor(...args : any[]) {
+        //             super(...args);
+        //             console.log("from Logger class");
+        //             console.log(this);
+        //         }
 
-            } 
+        //     } 
+        // }
+
+        // @Logger
+        // class Mine {
+        //     name : string;
+        //     constructor(name : string) {
+        //         this.name = name;
+        //         console.log("from Mine class");
+        //     }
+        // }
+
+        // const obj = new Mine("Shivendra");
+
+    //Validater decorator
+
+        function ReqiuredDecorator(target : any, propName : string) {
+            validerObject[target.constructor.name] = {
+                ...validerObject[target.constructor.name],
+                [propName] : [
+                    ...(validerObject[target.constructor.name]?.[propName] || []),
+                    "reqiured"
+                ]
+
+            }
+
         }
 
-        @Logger
-        class Mine {
-            name : string;
-            constructor(name : string) {
-                this.name = name;
-                console.log("from Mine class");
+        function MinlengthDecorator(target : any, propName : string) {
+            validerObject[target.constructor.name] = {
+                ...validerObject[target.constructor.name],
+                [propName] : [
+                    ...(validerObject[target.constructor.name]?.[propName] || []),
+                    "minlength"
+                ]
+
+            }
+
+        }
+        function PositiveDecorator(target : any, propName : string) {
+            validerObject[target.constructor.name] = {
+                ...validerObject[target.constructor.name],
+                [propName] : [
+                    ...(validerObject[target.constructor.name]?.[propName] || []),
+                    "psitiveNumber"
+                ]
+
+            }
+
+        }
+
+        interface ValidateId {
+            [prop : string] : {
+                [prop : string] : string[];
             }
         }
 
-        const obj = new Mine("Shivendra");
+        const validerObject : ValidateId = {};
 
+        function validator(obj : object) : boolean {
+            let isValid : boolean = true;
 
+            const validateClass = validerObject[obj.constructor.name];
+            if (!validateClass) {
+                return true;
+            }
 
+            for (let prop in validateClass) {
+                for (let val of validateClass[prop]) {
 
+                    switch(val) {
+                        case "reqiured" : {
+                            isValid = isValid && !!obj[prop];
+                            break;
+                        } 
 
+                        case "psitiveNumber" : {
+                            isValid = isValid && obj[prop] > 0;
+                            break;
+                        }
+
+                        case "minlength" : {
+                            isValid = isValid && obj[prop].length > 3;
+                            break;
+                        }
+
+                        default : {
+                            console.log("Invalid")
+                        }
+                    }
+                }
+            }
+
+            return isValid;
+
+        } 
+
+        class User {
+            @ReqiuredDecorator
+            @MinlengthDecorator
+            username : string;
+            @PositiveDecorator
+            age : number;
+
+            constructor(uname : string, age : number) {
+                this.username = uname;
+                this.age = age;
+            }
+        }
+
+        const obj1 = new User("ShivWk", 25);
+        const obj2 = new User("sahil", 24);
+ 
+        if(validator(obj2)) {
+           console.log("User object crerated");
+        } else {
+            alert("Invalid Input");
+        }
 
     
 
